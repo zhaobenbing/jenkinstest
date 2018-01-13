@@ -1,5 +1,6 @@
 package com.jenkins.test;
 
+import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -20,6 +21,7 @@ public class TestData {
     }
     System.out.println("================");
     disData(data);
+    BitSet bitSet;
   }
 
   private static void disData(int[] data) {
