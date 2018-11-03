@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".TestActivity">
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_mark"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintLeft_toRightOf="@id/image_view"
+        app:layout_constraintTop_toTopOf="@id/image_view" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="夏季短袖T恤女学生夏季宽松学T恤女学生夏季宽松T恤女学生夏季宽松生刺绣上衣纯白色打底夏季短袖T恤女学生夏季宽松学生刺绣上衣纯白色打底"
+        android:textColor="#202020"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toRightOf="@id/img_mark"
+        app:layout_constraintTop_toTopOf="@id/image_view" />
+
+    <FrameLayout
+        android:id="@+id/layout_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toRightOf="@id/image_view"
+        app:layout_constraintTop_toBottomOf="@id/img_mark">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@mipmap/icon_danmu_bg_1"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/img_editor"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:visibility="visible" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_recommend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:background="#fafafa"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="鹿仙人推荐：这件T恤非常的适合年轻人的穿着这件T恤非常的适合年…"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/layout_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="¥269"
+        android:textColor="#EF7575"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="@id/img_mark"
+        app:layout_constraintTop_toBottomOf="@id/layout_left" />
+
+    <TextView
+        android:id="@+id/tv_market_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="¥269"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_price"
+        app:layout_constraintLeft_toRightOf="@id/tv_price"
+        app:layout_constraintTop_toBottomOf="@id/layout_left" />
+
+    <TextView
+        android:id="@+id/tv_coin_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="right"
+        android:text="购后送800推币"
+        android:textColor="#EF7575"
+        android:textSize="11sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_price"
+        app:layout_constraintLeft_toRightOf="@id/tv_market_price"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_sale_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/go_buy_bg"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:singleLine="true"
+        android:text="去抢购"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/image_view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_coin_price" />
+
+</android.support.constraint.ConstraintLayout>
