@@ -2,26 +2,35 @@ package com.jenkins.test;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class TestActivity extends AppCompatActivity {
+import com.jenkins.test.base.BaseActivity;
+import com.jenkins.test.base.MethodAn;
+import com.jenkins.test.base.UI;
+
+@UI(value = R.layout.activity_test, text = "hello world!")
+public class TestActivity extends BaseActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // setContentView(R.layout.activity_test);
-    setContentView(new MyView(this));
+     setContentView(new MyView(this));
+    test();
+
+  }
+
+  @MethodAn(name = "hello world")
+  public void test() {
+
   }
 
   class MyView extends View {
@@ -59,8 +68,8 @@ public class TestActivity extends AppCompatActivity {
       int padding = 10;
       f.left = x - padding;
       f.right = x + rect.width() + padding;
-      f.top = y +padding/2;
-      f.bottom = y - rect.height() -padding;
+      f.top = y + padding / 2;
+      f.bottom = y - rect.height() - padding;
       paint.setStyle(Paint.Style.STROKE);
       paint.setStrokeWidth(5);
       canvas.drawRoundRect(f, 10, 10, paint);
@@ -80,23 +89,29 @@ public class TestActivity extends AppCompatActivity {
       paint.setStyle(Paint.Style.STROKE);
       canvas.drawRect(rect, paint);
 
+      canvas.save();
+      canvas.clipRect(100,100,1000,1000);
       Drawable drawable = getResources().getDrawable(R.drawable.ic_launcher);
-     //Bitmap bitmap =  BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher);
+      // Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher);
+      canvas.rotate(40);
+      canvas.scale(0.25f,0.25f);
       Bitmap bitmap = drawableToBitmap(drawable);
-     canvas.drawBitmap(bitmap,500,500,null);
+      canvas.drawBitmap(bitmap, 1000, 400,paint);
+      canvas.restore();
     }
   }
 
-  public static Bitmap drawableToBitmap(Drawable drawable){
+  public static Bitmap drawableToBitmap(Drawable drawable) {
     Bitmap bitmap = null;
     int width = drawable.getIntrinsicWidth();
     int height = drawable.getIntrinsicHeight();
     // 取 drawable 的颜色格式
-    Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-            : Bitmap.Config.RGB_565;
-    bitmap = Bitmap.createBitmap(width,height, config);
+    Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE
+        ? Bitmap.Config.ARGB_8888
+        : Bitmap.Config.RGB_565;
+    bitmap = Bitmap.createBitmap(width, height, config);
     Canvas canvas = new Canvas(bitmap);
-    drawable.setBounds(0,0,width,height);
+    drawable.setBounds(0, 0, width, height);
     drawable.draw(canvas);
     return bitmap;
   }
