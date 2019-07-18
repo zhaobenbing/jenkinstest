@@ -7,4 +7,6 @@ package com.jenkins.test
 class Tab {
     var name = "";
     var age = 1;
+    var sex  = "男"
+    var child = null
 }
